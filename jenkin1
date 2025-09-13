@@ -3,31 +3,18 @@ pipeline {
     stages {
         stage('BUILD') {
             steps {
-                echo "This is Build stage"
-                sh '''
-                    sleep 5
-                    exit 0
-                '''
+                echo "this is"
             }
         }
-        stage('TEST') {
+     stage('TEST') {
             steps {
-                catchError(buildResult: 'UNSTABLE', stageResult: 'FAILURE') {
-                    echo "This is Test stage"
-                    sh 'sleep 5; exit 1'
-                }
-            }
+                echo "this is test"
         }
-        stage('DEPLOY') {
+}
+     stage('DEPLOY') {
             steps {
-                echo "This is Deploy stage"
-                sh 'sleep 5'
-            }
-        }
+                echo "this is deploy"
     }
-    post {
-        always {
-            echo "Pipeline finished with status: ${currentBuild.currentResult}"
-        }
-    }
+}
+}
 }
